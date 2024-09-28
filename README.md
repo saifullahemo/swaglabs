@@ -3,9 +3,6 @@
 ## Table of Contents
 - [Project Setup](#project-setup)
 - [Running Tests](#running-tests)
-- [Bonus Features](#bonus-features)
-- [Test Reports](#test-reports)
-- [GitHub Actions](#github-actions)
 - [Linting](#linting)
 - [Folder Structure](#folder-structure)
 
@@ -24,18 +21,18 @@ Make sure you have the following installed on your system:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repo/swaglabs-playwright-tests.git
-    cd swaglabs-playwright-tests
+    https://github.com/saifullahemo/swaglabs.git
+    cd swaglabs
     ```
 
 2. Install dependencies using `pnpm`:
     ```bash
-    pnpm install
+    pnpm i
     ```
 
 3. Install the required Playwright browsers:
     ```bash
-    pnpm playwright install
+    pnpm create playwright
     ```
 
 ## Running Tests
@@ -44,12 +41,12 @@ You can run the test suite using the following commands:
 
 - Run all tests:
     ```bash
-    pnpm test
+    pnpm exec playwright test
     ```
 
 - Run a specific test file:
     ```bash
-    pnpm playwright test tests/login.spec.ts
+    pnpm exec playwright test tests/login.spec.ts
     ```
 
 - Run tests in headed mode (to see the browser):
@@ -57,19 +54,6 @@ You can run the test suite using the following commands:
     pnpm playwright test --headed
     ```
 
-- Run tests in **slow motion** (to slow down interactions):
-    ```bash
-    pnpm playwright test --slow-mo 1000
-    ```
-
-## Bonus Features
-
-### 1. GitHub Actions Workflow
-
-This repository includes a GitHub Actions workflow that automatically runs the Playwright tests on every push to the `main` branch.
-
-- The workflow configuration is located in `.github/workflows/test.yml`.
-- It runs tests on **Ubuntu** using Node.js version 16.
 
 ### 2. Test Reports
 
@@ -83,15 +67,6 @@ You can generate HTML test reports by using Playwright’s built-in reporting fu
 - After running the tests, open the report:
     ```bash
     pnpm playwright show-report
-    ```
-
-### 3. ESLint Integration
-
-ESLint is set up to ensure code quality and consistency across the project. The project uses **@typescript-eslint** to lint TypeScript files.
-
-- To check for linting issues, run:
-    ```bash
-    pnpm eslint "**/*.ts"
     ```
 
 ## Folder Structure
@@ -108,11 +83,6 @@ The repository follows the **Page Object Model (POM)** design pattern. Below is 
 │   ├── InventoryPage.ts    # Encapsulates inventory page elements and actions
 │   ├── CartPage.ts         # Encapsulates cart page elements and actions
 │   ├── CheckoutPage.ts     # Encapsulates checkout page elements and actions
-├── components             # Contains reusable UI components
-│   ├── CartItemComponent.ts# Reusable component for cart items
-├── .github                # GitHub Actions workflow configuration
-│   └── workflows
-│       └── test.yml        # Workflow for running tests in CI/CD
 ├── eslint.config.js        # ESLint configuration file
 ├── playwright.config.ts    # Playwright configuration file
 ├── package.json            # Node.js dependencies and scripts
